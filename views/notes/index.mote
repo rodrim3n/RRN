@@ -1,7 +1,11 @@
+<ol type="1">
 % notes.each do |note|
-  <h1>{{note.title}}</h1>
-  <p>{{note.description}}</p>
-  <a href="/notes/{{note.id}}">Show</a>
-  <a href="/notes/{{note.id}}/edit">Edit</a>
-  <a href="#">Delete</a>
+  <li>
+    <h1>{{note.title}}</h1>
+    <p>{{note.description}}</p>
+    <a href="/notes/{{note.id}}">Show</a>
+    <a href="/notes/{{note.id}}/edit">Edit</a>
+    <a href="#">Delete</a>
+  </li>
 % end
+</ol>

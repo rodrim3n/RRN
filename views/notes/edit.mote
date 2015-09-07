@@ -2,8 +2,10 @@
 
 <h2>Escribir nota</h2>
 <form method='post' action='/notes/{{note.id}}/edit'>
-  <textarea name=description>{{note.description}}</textarea>
-  <input type=text name=title text={{note.title}}></input>
+  Titulo<br>
+  <input type=text name=title value={{note.title}}></input><br>
+  Descripcion<br>
+  <textarea rows='4' cols='40' name=description>{{note.description}}</textarea><br>
   <button type=submit>Crear</button>
 </form>
 
