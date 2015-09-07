@@ -1,0 +1,38 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cuba (3.4.0)
+      rack
+    hiredis (0.6.0)
+    mote (1.1.4)
+    mote-render (1.1.0)
+    msgpack (0.5.12)
+    nido (1.0.0)
+    ohm (2.3.0)
+      msgpack (~> 0.5.0)
+      nido
+      redic (~> 1.5.0)
+      stal
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    redic (1.5.0)
+      hiredis
+    stal (0.1.0)
+      redic
+    tilt (2.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cuba (= 3.4.0)
+  mote (= 1.1.4)
+  mote-render (= 1.1.0)
+  ohm (= 2.3.0)
+  rack-protection (= 1.5.3)
+  redic (= 1.5.0)
+  tilt (= 2.0.1)
+
+BUNDLED WITH
+   1.10.6
