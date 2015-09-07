@@ -1,0 +1,28 @@
+/home/rodri/.rbenv/versions/2.2.1/bin/ruby -r ./siteconf20150906-13258-odfpva.rb extconf.rb
+checking for ruby/st.h... yes
+checking for st.h... yes
+checking for rb_str_replace() in ruby.h... yes
+checking for rb_intern_str() in ruby.h... yes
+checking for rb_sym2str() in ruby.h... yes
+checking for rb_str_intern() in ruby.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling packer.c
+compiling buffer.c
+compiling rmem.c
+compiling core_ext.c
+compiling packer_class.c
+compiling buffer_class.c
+compiling unpacker.c
+compiling unpacker_class.c
+unpacker_class.c:197:14: warning: ‘Unpacker_peek_next_type’ defined but not used [-Wunused-function]
+ static VALUE Unpacker_peek_next_type(VALUE self)
+              ^
+compiling rbinit.c
+linking shared-object msgpack/msgpack.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20150906-13258-1wuq5np/msgpack

@@ -1,0 +1,6 @@
+<h2>Escribir nota</h2>
+<form method='post' action='/notes'>
+  <textarea name=description placeholder='descripcion'></textarea>
+  <input type=text name=title placeholder='titulo'></input>
+  <button type=submit>Crear</button>
+</form>

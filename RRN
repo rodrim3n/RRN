@@ -1,0 +1,12 @@
+new_session -n 'editor'
+send_line 'editor' 'vi'
+
+new_window -n 'console'
+send_line 'console' 'pry'
+
+new_window -n 'general'
+send_line 'general' 'gits'
+
+new_window -n 'server'
+send_line 'server' 'gs'
+send_line 'server' 'dep'
