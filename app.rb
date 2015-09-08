@@ -27,7 +27,7 @@ Dir["./models/*.rb"].each { |f| require(f) }
 
 Cuba.define do
   on root do
-    res.write("este es el home guachin")
+    render("home")
   end
 
   on "notes" do
