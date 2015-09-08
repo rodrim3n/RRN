@@ -1,4 +1,2 @@
-class Note < Ohm::Model
-  attribute :title
-  attribute :description
+class Note < Sequel::Model
 end
