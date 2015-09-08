@@ -22,10 +22,11 @@ class Notes < Cuba
 
     on post do
       on root do
-        note = Note.create(
-          title: req.POST["title"],
-          description: req.POST["description"]
-        )
+        note = Note.new do |n|
+          n.title = req.POST["title"]
+          n.description = req.POST["description"]
+        end
+        note.save
         res.redirect("/notes/#{note.id}", 302)
       end
 
@@ -37,10 +38,12 @@ class Notes < Cuba
         res.redirect("/notes/#{note.id}", 302)
       end
 
-      on "delete/:id" do |id|
-        pass
-      end
+      # on "delete/:id" do |id|
+      #   note = Note[id].destroy
+      #   res.redirect("/notes")
+      # end
     end
+
 
   end
 end
