@@ -3,6 +3,5 @@ require 'bundler/setup'
 
 # Bundler.require
 
-
 require "./app.rb"
 run(Cuba)
