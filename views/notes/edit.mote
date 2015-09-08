@@ -1,7 +1,7 @@
 % # Vista para editar una nota puntual
 
 <h2>Escribir nota</h2>
-<form method='post' action='/notes/{{note.id}}/edit'>
+<form method='post' action='/notes/{{note.id}}'>
   Titulo<br>
   <input type=text name=title value={{note.title}}></input><br>
   Descripcion<br>

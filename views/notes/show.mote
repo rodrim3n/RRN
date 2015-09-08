@@ -1,2 +1,6 @@
 <h1>{{ note.title }}</h1>
 <p>{{ note.description }}</p>
+
+
+<a href="/notes">Back</a>
+<a href="#">Delete</a>
