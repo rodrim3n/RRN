@@ -16,15 +16,8 @@ Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
 Cuba.use (Rack::MethodOverride)
 
-DB = Sequel.connect('mysql://localhost/RRN', :user=>'root', :password=>'1234')
-
-# DB.create_table :notes do
-#   primary_key :id
-#   String :title
-#   String :description
-# end
-
-Dir["./controllers/*.rb"].each { |f| require(f) }
+Dir["./config/*.rb"].each {|f| require(f) }
+Dir["./routes/*.rb"].each { |f| require(f) }
 Dir["./models/*.rb"].each { |f| require(f) }
 
 Cuba.define do
