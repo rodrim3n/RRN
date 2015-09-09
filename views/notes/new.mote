@@ -1,5 +1,6 @@
 <h2>Escribir nota</h2>
 <form method='post' action='/notes'>
+  {{ app.csrf.form_tag }}
   <input type=text name=title placeholder='titulo'></input><br>
   <textarea name=description placeholder='descripcion'></textarea><br>
   <button type=submit>Crear</button>

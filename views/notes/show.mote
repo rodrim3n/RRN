@@ -4,6 +4,7 @@
 
 <a href="/notes">Back</a>
 <form method='post' action='/notes/delete/{{note.id}}'>
+  {{ app.csrf.form_tag }}
   <input type="hidden" name="_method" value="delete">
   <button type=submit>Delete</button>
 </form>

@@ -1,5 +1,6 @@
 <html>
   <head>
+    {{ app.csrf.meta_tag }}
     <meta charset="utf-8">
     <title>Home</title>
   </head>
