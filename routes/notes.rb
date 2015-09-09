@@ -10,12 +10,14 @@ class Notes < Cuba
         render("notes/new")
       end
 
-      on ":id/edit" do |id| #Edit
-        render("notes/edit", note: Note[id])
-      end
+      on ":id" do |id|
+        on root do #Show
+          render("notes/show", note: Note[id])
+        end
 
-      on ":id" do |id| #Show
-        render("notes/show", note: Note[id])
+        on "edit" do #Edit
+          render("notes/edit", note: Note[id])
+        end
       end
     end
 
@@ -43,7 +45,7 @@ class Notes < Cuba
 
     on delete do #Destroy
       on "delete/:id" do |id|
-        note = Note[id].destroy
+        Note[id].destroy
         res.redirect("/notes")
       end
     end
