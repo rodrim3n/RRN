@@ -6,7 +6,10 @@
     <p>{{note.description}}</p>
     <a href="/notes/{{note.id}}">Show</a>
     <a href="/notes/{{note.id}}/edit">Edit</a>
-    <a href="#">Delete</a>
+    <form method='post' action='/notes/delete/{{note.id}}'>
+      <input type="hidden" name="_method" value="delete">
+      <button type=submit>Delete</button>
+    </form>
   </li>
 % end
 </ol>

@@ -3,4 +3,7 @@
 
 
 <a href="/notes">Back</a>
-<a href="#">Delete</a>
+<form method='post' action='/notes/delete/{{note.id}}'>
+  <input type="hidden" name="_method" value="delete">
+  <button type=submit>Delete</button>
+</form>
