@@ -11,8 +11,10 @@ Cuba.plugin(Cuba::Render)
 Cuba.plugin(Mote::Render)
 Cuba.plugin(Cuba::Safe)
 
+
 Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
+Cuba.use (Rack::MethodOverride)
 
 DB = Sequel.connect('mysql://localhost/RRN', :user=>'root', :password=>'1234')
 

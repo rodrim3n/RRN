@@ -29,7 +29,9 @@ class Notes < Cuba
         note.save
         res.redirect("/notes/#{note.id}", 302)
       end
+    end
 
+    on put do
       on ":id" do |id| #Update
         note = Note[id].update(
           title: req.POST["title"],
@@ -39,12 +41,12 @@ class Notes < Cuba
       end
     end
 
-    # on delete do #Destroy
-      # on "delete/:id" do |id|
-      #   note = Note[id].destroy
-      #   res.redirect("/notes")
-      # end
-    # end
+    on delete do #Destroy
+      on "delete/:id" do |id|
+        note = Note[id].destroy
+        res.redirect("/notes")
+      end
+    end
 
 
   end
