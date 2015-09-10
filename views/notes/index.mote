@@ -4,6 +4,7 @@
   <li>
     <h1>{{note.title}}</h1>
     <p>{{note.description}}</p>
+    <p>{{note.date}}</p>
     <a href="/notes/{{note.id}}">Show</a>
     <a href="/notes/{{note.id}}/edit">Edit</a>
     <form method='post' action='/notes/delete/{{note.id}}'>
