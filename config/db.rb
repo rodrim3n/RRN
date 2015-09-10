@@ -5,5 +5,14 @@ if !DB.table_exists?(:notes)
     primary_key :id
     String :title
     String :description
+    DateTime :date
+  end
+end
+if !DB.table_exists?(:users)
+  DB.create_table :users do
+    primary_key :id
+    String :username
+    String :crypted_password
+    unique :username
   end
 end
