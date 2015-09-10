@@ -1,3 +1,6 @@
-<a href="/notes">Ver Notas</a>
+<a href="/notes">Ver Notas</a><br>
+<a href="/signup">Sign Up!</a><br>
+<a href="/login">Login!</a><br>
+<a href="/admin/logout">Logout!</a><br>
 
 
