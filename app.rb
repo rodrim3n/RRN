@@ -5,6 +5,9 @@ Cuba.plugin(Cuba::Render)
 Cuba.plugin(Mote::Render)
 Cuba.plugin(Cuba::Safe)
 
+Cuba.use(Shield::Middleware,"/login")
+Cuba.plugin(Shield::Helpers)
+
 Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::MethodOverride)
@@ -27,5 +30,13 @@ Cuba.define do
 
   on "notes" do
     run(Notes)
+  end
+
+  on "admin", authenticated(User) do
+    run(Admins)
+  end
+
+  on default, !authenticated(User) do
+    run(Guests)
   end
 end
