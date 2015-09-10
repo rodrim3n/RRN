@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    armor (0.0.3)
     cuba (3.4.0)
       rack
     mote (1.1.4)
@@ -10,6 +11,8 @@ GEM
     rack-protection (1.5.3)
       rack
     sequel (4.26.0)
+    shield (2.1.1)
+      armor
     tilt (2.0.1)
 
 PLATFORMS
@@ -22,6 +25,7 @@ DEPENDENCIES
   mysql (~> 2.9.1)
   rack-protection (= 1.5.3)
   sequel (= 4.26.0)
+  shield
   tilt (= 2.0.1)
 
 BUNDLED WITH
