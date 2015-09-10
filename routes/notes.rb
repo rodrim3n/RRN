@@ -21,12 +21,12 @@ class Notes < Cuba
       end
     end
 
-
     on post do
       on root do #Create
         note = Note.new do |n|
           n.title = req.POST["title"]
           n.description = req.POST["description"]
+          n.date = Time.now.strftime("%d/%m/%Y %H:%M")
         end
         note.save
         res.redirect("/notes/#{note.id}", 302)
@@ -49,7 +49,6 @@ class Notes < Cuba
         res.redirect("/notes")
       end
     end
-
 
   end
 end
