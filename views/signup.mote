@@ -1,0 +1,14 @@
+<h1>Signup</h1>
+
+<form action='/signup' method='post'>
+  {{ app.csrf.form_tag }}
+  <label>Username</label>
+  <input type="text" name="username" value="">
+  <label>Password</label>
+  <input type="password" name="password" value="">
+  <input type='submit' name='proceed' value='Signup'>
+</form>
+
+% if msg
+      <h3>{{msg}}<h3>
+% end
