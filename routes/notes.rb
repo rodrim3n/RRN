@@ -12,11 +12,11 @@ class Notes < Cuba
 
       on ":id" do |id|
         on root do #Show
-          render("notes/show", note: Note[id])
+          render("notes/show", note: Note.find(:id => id))
         end
 
         on "edit" do #Edit
-          render("notes/edit", note: Note[id])
+          render("notes/edit", note: Note.find(:id => id))
         end
       end
     end
@@ -35,7 +35,7 @@ class Notes < Cuba
 
     on put do
       on ":id" do |id| #Update
-        note = Note[id].update(
+        note = Note.find(:id => id).update(
           title: req.POST["title"],
           description: req.POST["description"]
         )
@@ -45,7 +45,7 @@ class Notes < Cuba
 
     on delete do #Destroy
       on "delete/:id" do |id|
-        Note[id].destroy
+        Note.find(:id => id).destroy
         res.redirect("/notes")
       end
     end
