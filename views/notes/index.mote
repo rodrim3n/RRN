@@ -1,4 +1,6 @@
-<h3><a href="/notes/new">Crear Nota</a></h3>
+<h3><a href="/notes/new">Create Note</a></h3>
+<h3><a href="/">Back</a></h3>
+
 <ol type="1">
 % notes.each do |note|
   <li>
