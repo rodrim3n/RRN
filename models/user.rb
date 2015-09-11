@@ -9,7 +9,6 @@ class User < Sequel::Model
   end
 
   def self.fetch(username)
-    pass
-    # implement filter
+    self.find(:username => username)
   end
 end
