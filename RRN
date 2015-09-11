@@ -1,4 +1,7 @@
-new_session -n 'editor'
+new_session -n 'general'
+send_line 'general' 'gs'
+
+new_window -n 'editor'
 send_line 'editor' 'vi'
 
 new_window -n 'console'
@@ -6,9 +9,6 @@ send_line 'console' 'pry'
 
 new_window -n 'mysql'
 send_line 'mysql' 'mysql -u root -p'
-
-new_window -n 'general'
-send_line 'general' 'gs'
 
 new_window -n 'server'
 send_line 'server' 'bundle exec rackup'

@@ -9,6 +9,5 @@
   <input type='submit' name='proceed' value='Signup'>
 </form>
 
-% if msg
-      <h3>{{msg}}<h3>
-% end
+
+<h3>{{msg ||= ''}}<h3>

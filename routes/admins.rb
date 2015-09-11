@@ -1,9 +1,13 @@
 class Admins < Cuba
   define do
+    on root do
+      render("admins/index")
+    end
+
     on "logout" do
-      session[:success] = "You have successfully logged out."
       logout(User)
-      res.redirect "/", 303
+      session[:success] = "You have successfully logged out."
+      render("home", msg: session[:success])
     end
   end
 end
