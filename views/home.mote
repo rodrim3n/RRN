@@ -1,7 +1,5 @@
 <a href="notes">Ver Notas</a><br>
-<a href="signup">Sign Up!</a><br>
 <a href="login">Login!</a><br>
-<a href="admin/logout">Logout!</a><br>
 
 <h3>{{msg ||= ''}}</h3>
 
