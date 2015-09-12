@@ -1,6 +1,5 @@
 class Notes < Cuba
   define do
-
     on get do
       on root do #Index
         render("notes/index", notes: Note.all)
@@ -29,7 +28,7 @@ class Notes < Cuba
           n.date = Time.now.strftime("%d/%m/%Y %H:%M")
         end
         note.save
-        res.redirect("/notes/#{note.id}", 302)
+        res.redirect "/notes/#{note.id}", 302
       end
     end
 
@@ -39,7 +38,7 @@ class Notes < Cuba
           title: req.POST["title"],
           description: req.POST["description"]
         )
-        res.redirect("/notes/#{note.id}", 302)
+        res.redirect "/notes/#{note.id}", 302
       end
     end
 

@@ -20,7 +20,7 @@ Cuba.define do
   on csrf.unsafe? do
     csrf.reset!
     res.status = 403
-    res.write("Not authorized")
+    res.write "Not authorized"
     halt(res.finish)
   end
 
@@ -36,7 +36,21 @@ Cuba.define do
     run(Admins)
   end
 
-  on default, !authenticated(User) do
-    run(Guests)
+  on "login" do
+    render("login")
+  end
+
+  on post, "login", param("username"), param("password") do |u, p|
+    if login(User, u, p)
+      session[:success] = "You have successfully logged in."
+      res.redirect "admin", 302
+    else
+      session[:error] = "Invalid username and/or password combination."
+      render("login")# msg: session[:error])
+    end
+  end
+
+  on default do
+    res.write "Page not found.", 404
   end
 end

@@ -1,6 +1,6 @@
-<h1>Signup</h1>
+<h1>Create new admin!</h1>
 
-<form action='/signup' method='post'>
+<form action='/admin' method='post'>
   {{ app.csrf.form_tag }}
   <label>Username</label>
   <input type="text" name="username" value="">
