@@ -1,2 +1,6 @@
 <h1>Pagina del admin</h3>
+<a href="/admin/new">Crear admin</a><br>
+<a href="/admin/list">Mostrar admins</a><br>
+<a href="/admin/logout">Logout!</a><br>
+
 <h3>{{msg ||= ''}}</h3>
