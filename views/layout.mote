@@ -7,6 +7,8 @@
 
   <body>
     <h1>Esto es parte del layout</h1>
+    {{ app.partial "_alerts"}}
+
     {{ content }}
   </body>
 </html>
