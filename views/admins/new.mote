@@ -9,5 +9,4 @@
   <input type='submit' name='proceed' value='Create'>
 </form>
 
-
-<h3>{{msg ||= ''}}<h3>
+<a href="/admin">Back</a>

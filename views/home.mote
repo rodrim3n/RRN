@@ -1,5 +1,7 @@
 <a href="notes">Ver Notas</a><br>
-<a href="login">Login!</a><br>
+%if !app.authenticated(User)
+<a href="auth/login">Login!</a><br>
+%end
 
 <h3>{{msg ||= ''}}</h3>
 

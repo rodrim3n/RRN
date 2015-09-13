@@ -1,14 +1,17 @@
+<!DOCTYPE html>
 <html>
   <head>
     {{ app.csrf.meta_tag }}
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Titulo</title>
   </head>
 
+  <header>{{app.partial "_header"}}</header>
   <body>
-    <h1>Esto es parte del layout</h1>
+    <h1>INFO DEL LAYOUT</h1>
     {{ app.partial "_alerts"}}
 
     {{ content }}
   </body>
+  <footer>{{app.partial "_footer"}}</footer>
 </html>
