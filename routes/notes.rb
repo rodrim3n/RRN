@@ -33,11 +33,9 @@ class Notes < Cuba
     end
 
     on put do
-      on ":id" do |id| #Update
-        note = Note.find(:id => id).update(
-          title: req.POST["title"],
-          description: req.POST["description"]
-        )
+      on ":id", param("title"), param("description") do |id, tit, desc| #Update
+        note = Note.find(:id => id)
+        note.update(title: tit, description: desc)
         res.redirect "/notes/#{note.id}", 302
       end
     end
