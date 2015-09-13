@@ -3,11 +3,13 @@
 <p>{{ note.date }}</p>
 
 
-<a href="/notes/{{note.id}}/edit">Edit</a>
 <a href="/notes">Back</a>
 
+% if app.authenticated(User)
+<a href="/notes/{{note.id}}/edit">Edit</a>
 <form method='post' action='/notes/delete/{{note.id}}'>
   {{ app.csrf.form_tag }}
   <input type="hidden" name="_method" value="delete">
   <button type=submit>Delete</button>
 </form>
+% end

@@ -20,7 +20,7 @@ class Notes < Cuba
       end
     end
 
-    on post do
+    on post, authenticated(User) do
       on root do #Create
         note = Note.new do |n|
           n.title = req.POST["title"]
@@ -32,7 +32,7 @@ class Notes < Cuba
       end
     end
 
-    on put do
+    on put, authenticated(User) do
       on ":id", param("title"), param("description") do |id, tit, desc| #Update
         note = Note.find(:id => id)
         note.update(title: tit, description: desc)
@@ -40,7 +40,7 @@ class Notes < Cuba
       end
     end
 
-    on delete do #Destroy
+    on delete, authenticated(User) do #Destroy
       on "delete/:id" do |id|
         Note.find(:id => id).destroy
         res.redirect("/notes")
