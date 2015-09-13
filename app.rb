@@ -36,8 +36,8 @@ Cuba.define do
     run Admins
   end
 
-  on "login" do
-    run Login
+  on "auth" do
+    run Authentication
   end
 
   on default do

@@ -14,12 +14,6 @@ class Admins < Cuba
         render "admins/list", admins: User.all
       end
 
-      on "logout" do
-        logout(User)
-        session[:success] = "You have successfully logged out."
-        res.redirect "/", 302
-      end
-
       on "edit/:id" do |id|
         render("admins/edit", admin: User.find(:id => id))
       end

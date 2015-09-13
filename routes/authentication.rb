@@ -1,20 +1,25 @@
-class Login < Cuba
+class Authentication < Cuba
   define do
 
     on get do
-      on root do
+      on "login" do
         render "login"
+      end
+      on "logout" do
+        logout(User)
+        session[:success] = "You have successfully logged out."
+        res.redirect "/", 302
       end
     end
 
     on post do
-      on root, param("username"), param("password") do |u, p|
+      on "login", param("username"), param("password") do |u, p|
         if login(User, u, p)
           session[:success] = "You have successfully logged in."
           res.redirect "admin", 302
         else
           session[:error] = "Invalid username and/or password combination."
-          res.redirect "login", 302
+          res.redirect "auth/login", 302
         end
       end
     end
