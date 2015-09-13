@@ -12,7 +12,6 @@
         <input type="hidden" name="_method" value="delete">
         <button type=submit>Delete</button>
       </form>
-      <a href="/admin/edit/{{admin.id}}">Edit</a>
     </td>
   </tr>
   % end

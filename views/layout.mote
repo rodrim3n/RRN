@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>Titulo</title>
   </head>
-
   <header>{{app.partial "_header"}}</header>
   <body>
     <h1>INFO DEL LAYOUT</h1>

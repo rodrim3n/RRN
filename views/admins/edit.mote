@@ -10,5 +10,5 @@
   <input type="password" name="newpassword" value="">
   <input type='submit' name='proceed' value='Create'>
 </form>
-<a href="/admin/list">Back</a>
+<a href="/admin">Back</a>
 

@@ -2,6 +2,9 @@
 %if !app.authenticated(User)
 <a href="auth/login">Login!</a><br>
 %end
+%if app.authenticated(User)
+<a href="/admin">Admin's stuff!</a><br>
+%end
 
 <h3>{{msg ||= ''}}</h3>
 

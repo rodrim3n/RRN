@@ -1,5 +1,6 @@
 <h1>Pagina del admin</h3>
 <a href="/admin/new">Crear admin</a><br>
+<a href="/admin/edit/{{app.session[User.to_s]}}">Editar mi password</a><br>
 <a href="/admin/list">Mostrar admins</a><br>
 <a href="/auth/logout">Logout!</a><br>
 
