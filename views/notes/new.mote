@@ -1,8 +1,9 @@
 <h2>Escribir nota</h2>
-<form method='post' action='/notes'>
+<form method='post' action='/notes' enctype="multipart/form-data">
   {{ app.csrf.form_tag }}
   <input type=text name=title placeholder='titulo'></input><br>
   <textarea name=description placeholder='descripcion'></textarea><br>
+  <input type="file" name="img" accept="image/*"><br>
   <button type=submit>Crear</button>
 </form>
 <a href="/notes">Back</a>

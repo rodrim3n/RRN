@@ -22,13 +22,24 @@ class Notes < Cuba
 
     on post, authenticated(User) do
       on root do #Create
-        note = Note.new do |n|
-          n.title = req.POST["title"]
-          n.description = req.POST["description"]
-          n.date = Time.now.strftime("%d/%m/%Y %H:%M")
+        begin
+          note = Note.new do |n|
+            n.title = req.POST["title"]
+            n.description = req.POST["description"]
+            n.image = req.POST["img"][:filename]
+            n.date = Time.now.strftime("%d/%m/%Y")
+
+            tempfile = req.POST["img"][:tempfile]
+            File.open("./public/img/#{n.image}#{n.date}", 'wb') do |f|
+              f.write(tempfile.read)
+            end
+          end
+          note.save
+          res.redirect "/notes/#{note.id}", 302
+        rescue Sequel::ValidationFailed
+          session[:error] = "Title and description are not optionals."
+          res.redirect "/notes/new"
         end
-        note.save
-        res.redirect "/notes/#{note.id}", 302
       end
     end
 

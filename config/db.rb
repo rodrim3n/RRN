@@ -5,7 +5,8 @@ if !DB.table_exists?(:notes)
     primary_key :id
     String :title
     String :description
-    DateTime :date
+    String :image
+    Date :date
   end
 end
 if !DB.table_exists?(:users)

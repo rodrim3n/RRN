@@ -1,13 +1,16 @@
 <h1>{{ note.title }}</h1>
 <p>{{ note.description }}</p>
 <p>{{ note.date }}</p>
+% if note.image
+<img src="/public/img/{{note.image+note.date.to_s}}" alt="el cthulhu">
+% end
 
 
 <a href="/notes">Back</a>
 
 % if app.authenticated(User)
 <a href="/notes/{{note.id}}/edit">Edit</a>
-<form method='post' action='/notes/delete/{{note.id}}'>
+<form method='post' action='/notes/delete/{{note.id}}' enctype="multipart/form-data">
   {{ app.csrf.form_tag }}
   <input type="hidden" name="_method" value="delete">
   <button type=submit>Delete</button>
