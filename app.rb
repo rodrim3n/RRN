@@ -12,9 +12,14 @@ Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::MethodOverride)
 
-Dir["./config/*.rb"].each {|f| require(f) }
+Cuba.use(Rack::Static, root: "public", urls: ["/img", "/js", "/css"])
+
+Dir["./lib/**/*.rb"].each { |f| require(f) }
+Dir["./config/*.rb"].each { |f| require(f) }
 Dir["./routes/*.rb"].each { |f| require(f) }
 Dir["./models/*.rb"].each { |f| require(f) }
+
+Cuba.plugin(Helpers)
 
 Cuba.define do
   on csrf.unsafe? do
