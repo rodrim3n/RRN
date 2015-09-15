@@ -10,6 +10,11 @@ GEM
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    racksh (1.0.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
     sequel (4.26.0)
     shield (2.1.1)
       armor
@@ -24,6 +29,7 @@ DEPENDENCIES
   mote-render (= 1.1.0)
   mysql (~> 2.9.1)
   rack-protection (= 1.5.3)
+  racksh
   sequel (= 4.26.0)
   shield
   tilt (= 2.0.1)
