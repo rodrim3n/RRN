@@ -12,7 +12,7 @@ Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::MethodOverride)
 
-Cuba.use(Rack::Static, root: "public", urls: ["/img", "/js", "/css"])
+Cuba.use(Rack::Static, urls: ["/public"])
 
 Dir["./lib/**/*.rb"].each { |f| require(f) }
 Dir["./config/*.rb"].each { |f| require(f) }
