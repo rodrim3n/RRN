@@ -2,7 +2,7 @@
 <p>{{ note.description }}</p>
 <p>{{ note.date }}</p>
 % if note.image
-<img src="/public/img/{{note.image+note.date.to_s}}" alt="el cthulhu">
+{{"<img src='/public/img/#{note.image}#{note.date}' alt='something' height='170' width='170'><br>"}}
 % end
 
 

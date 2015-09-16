@@ -1,5 +1,3 @@
-% # Vista para editar una nota puntual
-
 <h2>Escribir nota</h2>
 <form method='post' action='/notes/{{note.id}}'>
   {{ app.csrf.form_tag }}
