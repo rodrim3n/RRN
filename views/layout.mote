@@ -2,7 +2,7 @@
 <html>
   <head>
     {{ app.csrf.meta_tag }}
-    <link rel="stylesheet" href="../public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
     <meta charset="utf-8">
     <title>Titulo</title>
   </head>

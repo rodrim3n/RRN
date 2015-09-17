@@ -43,9 +43,9 @@ class Admins < Cuba
           user.password = new
           user.save_changes
           session[:success] = "You have updated #{user.username} password."
-          res.redirect "/admin/list", 302
+          res.redirect "/admin", 302
         else
-          session[:error] = "Old password doesn't match with new."
+          session[:error] = "Old password doesn't match with new nigga."
           res.redirect "/admin/edit/#{user.id}", 302
         end
       end
