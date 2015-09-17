@@ -1,14 +1,15 @@
-% # Vista para editar una nota puntual
-
 <h2>Edit Password</h2>
 <form method='post' action='/admin/{{admin.id}}'>
   {{ app.csrf.form_tag }}
   <input type="hidden" name="_method" value="put">
+
+  %if !app.is_admin? || admin.id == app.current_user[:id]
   <label>Old Password</label>
   <input type="password" name="oldpassword" value="">
+  %end
   <label>New Password</label>
   <input type="password" name="newpassword" value="">
-  <input type='submit' name='proceed' value='Create'>
-</form>
+  <input type='submit' name='proceed' value='Save'>
+</form><br>
 <a href="/admin">Back</a>
 

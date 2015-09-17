@@ -10,7 +10,3 @@
 <a href="/auth/logout">Logout!</a><br>
 %end
 
-
-
-<h3>{{msg ||= ''}}</h3>
-

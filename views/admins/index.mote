@@ -5,18 +5,20 @@
     <td>Username</td>
     <td>Actions</td>
   </th>
-  % admins.each do |admin|
-  <tr>
-    <td> {{admin.username}} </td>
-    <td>
-      <form method='post' action='/admin/delete/{{admin.id}}'>
-        {{ app.csrf.form_tag }}
-        <input type="hidden" name="_method" value="delete">
-        <button type=submit>Delete</button>
-      </form>
-      <a href="/admin/edit/{{admin.id}}">Editar password</a><br>
-    </td>
-  </tr>
+  % users.each do |user|
+    % if !user.admin
+    <tr>
+      <td> {{user.username}} </td>
+      <td>
+        <form method='post' action='/admin/delete/{{user.id}}'>
+          {{ app.csrf.form_tag }}
+          <input type="hidden" name="_method" value="delete">
+          <button type=submit>Delete</button>
+        </form>
+        <a href="/admin/edit/{{user.id}}">Editar password</a><br>
+      </td>
+    </tr>
+    % end
   % end
 <table>
 <p>===========================================</p>
