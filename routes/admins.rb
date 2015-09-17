@@ -3,7 +3,7 @@ class Admins < Cuba
 
     on get, authenticated(User) do
       on root, is_admin? do
-        render "admins/index", admins: User.all
+        render "admins/index", users: User.all
       end
 
       on "new", is_admin? do
@@ -38,19 +38,27 @@ class Admins < Cuba
         if (Shield::Password.check(old, user.crypted_password))
           user.password = new
           user.save_changes
-          session[:success] = "You have updated #{user.username} password."
+          session[:success] = "You have updated your password."
           res.redirect "/", 302
         else
           session[:error] = "Old password doesn't match with new nigga."
           res.redirect "/admin/edit/#{user.id}", 302
         end
       end
+
+      on ":id", is_admin?, param("newpassword") do |id, new|
+        user = User.find(:id => id)
+        user.password = new
+        user.save_changes
+        session[:success] = "You have updated #{user.username}'s password."
+        res.redirect "/", 302
+      end
     end
 
     on delete, authenticated(User), is_admin? do
       on "delete/:id" do |id|
         User.find(:id => id).destroy
-        res.redirect "/admin/list", 302
+        res.redirect "/admin", 302
       end
     end
 
