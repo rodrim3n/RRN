@@ -1,6 +1,26 @@
-<h1>Pagina del admin</h3>
+<h1>Admins actuales</h3>
+
+<table>
+  <th>
+    <td>Username</td>
+    <td>Actions</td>
+  </th>
+  % admins.each do |admin|
+  <tr>
+    <td> {{admin.username}} </td>
+    <td>
+      <form method='post' action='/admin/delete/{{admin.id}}'>
+        {{ app.csrf.form_tag }}
+        <input type="hidden" name="_method" value="delete">
+        <button type=submit>Delete</button>
+      </form>
+      <a href="/admin/edit/{{admin.id}}">Editar password</a><br>
+    </td>
+  </tr>
+  % end
+<table>
+<p>===========================================</p>
+<a href="/">Back</a><br>
 <a href="/admin/new">Crear admin</a><br>
-<a href="/admin/edit/{{app.session[User.to_s]}}">Editar mi password</a><br>
-<a href="/admin/list">Mostrar admins</a><br>
 <a href="/auth/logout">Logout!</a><br>
 

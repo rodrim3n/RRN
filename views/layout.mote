@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <title>Titulo</title>
   </head>
-  <header>{{app.partial "_header"}}</header>
   <body>
+    <header>{{app.partial "_header"}}</header>
     <h1>INFO DEL LAYOUT</h1>
     {{ app.partial "_alerts"}}
 
     {{ content }}
+    <footer>{{app.partial "_footer"}}</footer>
   </body>
-  <footer>{{app.partial "_footer"}}</footer>
 </html>

@@ -16,7 +16,7 @@ class Authentication < Cuba
       on "login", param("username"), param("password") do |u, p|
         if login(User, u, p)
           session[:success] = "You have successfully logged in."
-          res.redirect "/admin", 302
+          res.redirect "/", 302
         else
           session[:error] = "Invalid username and/or password combination."
           res.redirect "/auth/login", 302
