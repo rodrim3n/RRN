@@ -26,12 +26,9 @@ class Notes < Cuba
           note = Note.new do |n|
             n.title = req.POST["title"]
             n.description = req.POST["description"]
-            n.image = req.POST["img"][:filename]
-            n.date = Time.now.strftime("%d/%m/%Y")
-
-            tempfile = req.POST["img"][:tempfile]
-            File.open("./public/img/#{n.image}#{n.date}", 'wb') do |f|
-              f.write(tempfile.read)
+            n.date = Time.now
+            if req.POST["img"]
+              n.image = file_uploader(req.POST["img"])
             end
           end
           note.save

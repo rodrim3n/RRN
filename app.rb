@@ -11,7 +11,6 @@ Cuba.plugin(Shield::Helpers)
 Cuba.use(Rack::Session::Cookie, :secret => "!@(!P{($)})")
 Cuba.use(Rack::Protection)
 Cuba.use(Rack::MethodOverride)
-
 Cuba.use(Rack::Static, urls: ["/public"])
 
 Dir["./lib/**/*.rb"].each { |f| require(f) }
