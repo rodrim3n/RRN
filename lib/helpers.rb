@@ -3,6 +3,10 @@ module Helpers
     authenticated(User)
   end
 
+  def is_admin?
+    current_user[:admin]
+  end
+
   def notfound(msg)
     res.status = 404
     res.write(msg)

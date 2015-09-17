@@ -14,6 +14,7 @@ if !DB.table_exists?(:users)
     primary_key :id
     String :username
     String :crypted_password
+    TrueClass :admin, :default => 0
     unique :username
   end
 end

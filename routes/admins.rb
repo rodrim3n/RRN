@@ -2,16 +2,12 @@ class Admins < Cuba
   define do
 
     on get, authenticated(User) do
-      on root do
-        render "admins/index"
+      on root, is_admin? do
+        render "admins/index", admins: User.all
       end
 
-      on "new" do #new
+      on "new", is_admin? do
         render "admins/new"
-      end
-
-      on "list" do
-        render "admins/list", admins: User.all
       end
 
       on "edit/:id" do |id|
@@ -19,7 +15,7 @@ class Admins < Cuba
       end
     end
 
-    on post, authenticated(User) do
+    on post, authenticated(User), is_admin? do
       on root, param("username"), param("password") do |u, p| #create
         user = User.new
         user.username= u
@@ -43,7 +39,7 @@ class Admins < Cuba
           user.password = new
           user.save_changes
           session[:success] = "You have updated #{user.username} password."
-          res.redirect "/admin", 302
+          res.redirect "/", 302
         else
           session[:error] = "Old password doesn't match with new nigga."
           res.redirect "/admin/edit/#{user.id}", 302
@@ -51,7 +47,7 @@ class Admins < Cuba
       end
     end
 
-    on delete, authenticated(User) do #Destroy
+    on delete, authenticated(User), is_admin? do
       on "delete/:id" do |id|
         User.find(:id => id).destroy
         res.redirect "/admin/list", 302
