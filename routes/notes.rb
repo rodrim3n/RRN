@@ -43,7 +43,12 @@ class Notes < Cuba
     on put, authenticated(User) do
       on ":id", param("title"), param("description") do |id, tit, desc| #Update
         note = Note.find(:id => id)
-        note.update(title: tit, description: desc)
+        if req.POST["img"]
+          filename = file_uploader(req.POST["img"])
+          note.update(title: tit, description: desc, image: filename)
+        else
+          note.update(title: tit, description: desc)
+        end
         res.redirect "/notes/#{note.id}", 302
       end
     end

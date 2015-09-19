@@ -16,7 +16,7 @@ class Admins < Cuba
     end
 
     on post, authenticated(User), is_admin? do
-      on root, param("username"), param("password") do |u, p| #create
+      on root, param("username"), param("password") do |u, p|
         user = User.new
         user.username= u
         user.password= p
@@ -33,7 +33,7 @@ class Admins < Cuba
     end
 
     on put, authenticated(User) do
-      on ":id", param("oldpassword"), param("newpassword") do |id, old, new| #Update
+      on ":id", param("oldpassword"), param("newpassword") do |id, old, new|
         user = User.find(:id => id)
         if (Shield::Password.check(old, user.crypted_password))
           user.password = new

@@ -1,12 +1,19 @@
 <h2>Escribir nota</h2>
-<form method='post' action='/notes/{{note.id}}'>
+<form method='post' action='/notes/{{note.id}}' enctype="multipart/form-data">
   {{ app.csrf.form_tag }}
   <input type="hidden" name="_method" value="put">
   Titulo<br>
   <input type=text name=title value={{note.title}}></input><br>
   Descripcion<br>
   <textarea rows='4' cols='40' name=description>{{note.description}}</textarea><br>
+
+  % if note.image
+  <img src='/public/img/{{note.image}}' alt='something' height='170' width='170'><br>
+  % end
+
+  <input type="file" name="img" accept="image/*"><br>
+
+
   <button type=submit>Guardar Cambios</button>
 </form>
 <a href="/notes">Back</a>
-
