@@ -10,7 +10,7 @@
     <tr>
       <td> {{user.username}} </td>
       <td>
-        <form method='post' action='/admin/delete/{{user.id}}'>
+        <form method='post' action='/admin/{{user.id}}'>
           {{ app.csrf.form_tag }}
           <input type="hidden" name="_method" value="delete">
           <button type=submit>Delete</button>

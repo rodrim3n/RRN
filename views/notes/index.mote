@@ -13,7 +13,7 @@
 
     % if app.authenticated(User)
     <a href="/notes/{{note.id}}/edit">Edit</a>
-    <form method='post' action='/notes/delete/{{note.id}}'>
+    <form method='post' action='/notes/{{note.id}}'>
       {{ app.csrf.form_tag }}
       <input type="hidden" name="_method" value="delete">
       <button type=submit>Delete</button>

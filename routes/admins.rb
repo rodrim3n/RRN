@@ -56,7 +56,7 @@ class Admins < Cuba
     end
 
     on delete, authenticated(User), is_admin? do
-      on "delete/:id" do |id|
+      on ":id" do |id|
         User.find(:id => id).destroy
         res.redirect "/admin", 302
       end

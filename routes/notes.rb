@@ -54,7 +54,7 @@ class Notes < Cuba
     end
 
     on delete, authenticated(User) do #Destroy
-      on "delete/:id" do |id|
+      on ":id" do |id|
         Note.find(:id => id).destroy
         res.redirect("/notes")
       end
